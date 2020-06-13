@@ -1,3 +1,34 @@
-<p>
-  register works!
-</p>
+<section class="header">
+  <h1>{{ pageTitle }}</h1>
+  <small class="text-muted">Registrate en nuestro plataforma para poder crear artículos y mucho más...</small>
+</section>
+
+<section>
+  <form>
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required placeholder="Nombre">
+    </div>
+    <div class="form-group">
+      <label for="surname">Apellidos</label>
+      <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" class="form-control" required placeholder="Apellidos">
+    </div>
+    <div class="row">
+      <div class="form-group col-12 col-md-6">
+        <label for="email">Correo electrónico</label>
+        <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" required placeholder="Correo electrónico">
+      </div>
+      <div class="form-group col-12 col-md-6">
+        <label for="password">Contraseña</label>
+        <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" required placeholder="Contraseña">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Descripción</label>
+      <textarea name="description" #description [(ngModel)]="user.description" rows="5" class="form-control" placeholder="Descripción"></textarea>
+    </div>
+    <div class="form-group text-right">
+      <input type="submit" value="Guardar" class="btn btn-primary">
+    </div>
+  </form>
+</section>

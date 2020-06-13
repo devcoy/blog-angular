@@ -1,8 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+$primary-color: #CE474D;
+$secondary-color: #6AA9E5;
+$third-color: #265A97;
+
+body * {
+  color: #3c3c3c;
+  font-weight: 300;
+}
 main {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+section.header {
+  margin-bottom: 20px;
+}
 .active {
   color: #fff;
+}
+
+/**
+* Buttons
+*/
+.btn-primary {
+  background-color: $third-color !important;
+  border: none !important;
 }
