@@ -9,7 +9,10 @@ import { Global } from './global.service';
   providedIn: 'root'
 })
 export class UserService {
+
   url: string;
+  token: string;
+  identity: any;   
 
   constructor(
     private _http: HttpClient
@@ -30,6 +33,48 @@ export class UserService {
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
     return this._http.post(this.url + 'register', params, { headers: headers });
+  }
+
+
+  /**
+   * Iniciar sesión u Obtener el token
+   */
+  signup(user, getToken = null): Observable<any> {
+
+    if(getToken != null) {
+      user.getToken = true;
+    } 
+    
+    let json = JSON.stringify(user);
+    let params = 'json=' + json;    
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+    return this._http.post(this.url + 'login', params, {headers: headers});
+  }
+
+
+  /** 
+   * Obtener el token almacenado en localStorage
+  */
+ getToken() {
+   let token = localStorage.getItem('token');
+   
+   (token && token != 'undefined') ? this.token = token : this.token = null;
+
+   return this.token;
+ }
+
+
+  /**
+   * Obtener los datos del usuario identificado (identity) almacenado en localStorage
+   */
+  getIdentity() {
+    // Convertir el json string a on obj js
+    let identity = JSON.parse(localStorage.getItem('identity'));
+    
+    (identity && identity != 'undefined') ? this.identity = identity : this.identity = null;
+
+    return this.identity;
   }
 
 
