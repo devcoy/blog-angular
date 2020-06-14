@@ -20,4 +20,11 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * Registro de usuario
+   */
+  onSubmit(form) {
+    console.log(this.user);
+  }
+
 }
