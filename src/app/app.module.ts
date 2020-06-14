@@ -11,6 +11,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { appRoutingProvider, routingModule } from './app.routing';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

@@ -7,13 +7,20 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'inicio', component: HomeComponent },
+
+  // Usuario
   { path: 'registro', component: RegisterComponent},
   { path: 'iniciar-sesion', component: LoginComponent },
   { path: 'logout/:sure', component: LoginComponent },
-  { path: 'inicio', component: HomeComponent },
+  { path: 'ajustes', component: UserEditComponent },
+
+
+  // 404
   { path: '**', component: ErrorPageComponent }
 ];
 
