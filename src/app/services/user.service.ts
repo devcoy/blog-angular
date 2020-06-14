@@ -33,4 +33,21 @@ export class UserService {
   }
 
 
+  /**
+   * Iniciar sesión u Obtener el token
+   */
+  signup(user, getToken = null): Observable<any> {
+
+    if(getToken != null) {
+      user.getToken = true;
+    } 
+    
+    let json = JSON.stringify(user);
+    let params = 'json=' + json;    
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+    return this._http.post(this.url + 'login', params, {headers: headers});
+  }
+
+
 }

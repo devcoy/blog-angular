@@ -7,7 +7,7 @@
         </div>
         <div class="panel__left-body">
 
-          <form method="POST" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+          <form method="POST" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
             <div class="form-group">
               <label for="email">Correo electrónico</label>
               <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" placeholder="usuario@dominio.com"/>
