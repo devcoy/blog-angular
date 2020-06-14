@@ -13,11 +13,24 @@ export class UserService {
 
   constructor(
     private _http: HttpClient
-  ) { 
+  ) {
     this.url = Global.url;
   }
 
   test() {
     return 'User service success';
   }
+
+  /**
+   * Registro de usuario
+   */
+  userRegister(user): Observable<any> {    
+    let json = JSON.stringify(user);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+    return this._http.post(this.url + 'register', params, { headers: headers });
+  }
+
+
 }

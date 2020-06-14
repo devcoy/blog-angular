@@ -4,6 +4,9 @@
 </section>
 
 <section>
+  <div *ngIf="message" class="alert" [ngClass]="{'alert-success': status === 'success', 'alert-danger': status === 'error' }" role="alert">
+    {{ message }}
+  </div>
   <form method="POST" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
     <div class="form-group">
       <label for="name">Nombre</label>

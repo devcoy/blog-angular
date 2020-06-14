@@ -13,6 +13,8 @@ export class RegisterComponent implements OnInit {
 
   pageTitle: string;
   user: User;
+  status: string;
+  message: string;
 
   constructor(
     private _userService: UserService
@@ -28,8 +30,20 @@ export class RegisterComponent implements OnInit {
    * Registro de usuario
    */
   onSubmit(form) {
-    console.log(this.user);
-    console.log(this._userService.test());
+    //console.log(this.user); 
+    this._userService.userRegister(this.user).subscribe(
+      response => {
+        //console.log(response);
+        this.status = response.status;
+        this.message = response.message;
+        if(this.status == 'success') form.reset();
+      },
+      error => {
+        //console.log(error);
+        this.status = error.error.status;
+        this.message = error.error.message;   
+      }
+    );
   }
 
 }
