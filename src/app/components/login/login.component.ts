@@ -47,8 +47,11 @@ export class LoginComponent implements OnInit {
           this._userService.signup(this.user, true).subscribe(
             response => {
               this.identity = response;
-              console.log(this.token);
-              console.log(this.identity);
+              // Persistir datos del usuario identificado
+              // console.log(this.token); console.log(this.identity);            
+              localStorage.setItem('token', this.token);
+              // Convertir el obj de js a json string
+              localStorage.setItem('identity', JSON.stringify(this.identity));
             },
             error => {
               this.status = response.status;
